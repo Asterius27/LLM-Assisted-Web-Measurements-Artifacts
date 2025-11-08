@@ -1,5 +1,7 @@
 # LLM-Assisted-Web-Measurements-Artifacts
 
+**Note: Due to an ongoing issue affecting Anonymous GitHub access, files in some repositories may not display correctly in the browser. As a workaround, you can download the repository as a ZIP archive and inspect the files locally. The files are present; however, they may not correctly rendered online.**
+
 This repository contains the prompts, generated datasets, and LLM results presented in our paper ‘LLM-Assisted Web Measurements’.
 
 The code and dataset used for the experiments carried out in section 5.1 is available at: https://github.com/ydimova/oauth_project_code, while the code and datasets used for the experiments carried out in section 5.2 is available at: https://govcookies.github.io/ and https://github.com/uw-ictd/GovHTTPS-Data.
