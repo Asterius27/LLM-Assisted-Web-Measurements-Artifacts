@@ -1,6 +1,6 @@
 # LLM-Assisted-Web-Measurements-Artifacts
 
-**Note: Due to an ongoing issue affecting Anonymous GitHub access, files in some repositories may not display correctly in the browser. As a workaround, you can download the repository as a ZIP archive and inspect the files locally. The files are present; however, they may not correctly rendered online.**
+**Note: Due to an ongoing issue affecting Anonymous GitHub access, files in some repositories may not display correctly in the browser. As a workaround, you can download the repository as a ZIP archive and inspect the files locally. The files are present; however, they may not render correctly online.**
 
 This repository contains the prompts, generated datasets, and LLM results presented in our paper ‘LLM-Assisted Web Measurements’.
 
