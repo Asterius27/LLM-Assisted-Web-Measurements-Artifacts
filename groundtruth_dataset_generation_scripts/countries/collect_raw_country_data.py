@@ -384,7 +384,7 @@ def parallel_int_filter(domains, workers=10, chunk_size=5):
                 print(f"[THREAD ERROR] {e}")
     return results
 
-def process_results(results, k, threshold, max_len, international="", log_f="new_tranco_lists_filtered"):
+def process_results(results, k, threshold, max_len, international="", log_f="tranco_lists_filtered"):
     logger_dct = {}
     filtered_domains = []
     for domain, url, url_after_redirect, loc, b_locale, ft_res, cld3_res in results:

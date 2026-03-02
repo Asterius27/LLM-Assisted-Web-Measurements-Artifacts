@@ -101,8 +101,8 @@ def load_country_urls(folder, threshold):
     return result, result_log
 
 if __name__ == "__main__":
-    int_urls_list, int_log_dct = load_filtered_int_urls("new_tranco_lists_filtered", 0.9)
-    gt_dct, gt_log_dct = load_country_urls("new_tranco_lists_filtered", 0.9)
+    int_urls_list, int_log_dct = load_filtered_int_urls("tranco_lists_filtered", 0.9)
+    gt_dct, gt_log_dct = load_country_urls("tranco_lists_filtered", 0.9)
     gt_dct["int"] = int_urls_list
     save_logs("filtered_int_domains_logs.json", int_log_dct)
     save_logs("filtered_country_domains_logs.json", gt_log_dct)
