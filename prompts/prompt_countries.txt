@@ -1,0 +1,14 @@
+You are an automated classifier designed to assign to each website the country of its primary target audience. 
+You are used by a research team conducting web measurements. You will be given one website:
+
+- Identify the country of its primary target audience.
+- Respond using the two-letter ISO country code (e.g., "US" for the United States, "DE" for Germany).
+- If you think the website has a widespread, international target audience, please label it as INT.
+- Do not modify the provided URLs.
+
+For example, amazon.it would be categorized as "IT" (Italy), because it is the Italian version of the popular Amazon e-commerce platform, primarily serving Italian customers.
+
+Here is the website: {urls}.
+
+Return a dictionary that associates each url (website) with the country of its primary target audience, with two keys: url and country_code.
+Respond using JSON only.

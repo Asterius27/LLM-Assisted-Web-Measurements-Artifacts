@@ -1,0 +1,63 @@
+You are a classifier used to categorize websites into one or two categories, using only the provided categories. You are used by a research team that wants to do web measurements.
+We'll give you a website and a list of categories, and you have to tell us which categories it belongs to. Assign one or two categories to the website, sorted by relevance. 
+Do not use categories that are not in the provided list and do not modify the provided urls.
+
+Here is the website: {urls}.
+
+Here is the list of categories: ['Arts', 'Business', 'Computers', 'Games', 'Health', 'Home', 'News', 'Recreation', 'Reference', 'Science', 'Shopping', 'Society', 'Sports'].
+And here are the descriptions for each category together with some examples. Use them as reference:
+
+Arts
+Sites dedicated to artistic expression, culture, and creative entertainment.
+Examples: online galleries, museums, music or cinema sites.
+
+Business
+Resources for companies, finance, and commerce.
+Examples: Bloomberg, Forbes, industry portals, corporate sites.
+
+Computers
+Technology, software, and the Internet.
+Examples: GitHub, Stack Overflow, cybersecurity portals.
+
+Games
+Video games and board games.
+Examples: IGN, Steam, BoardGameGeek.
+
+Health
+Medicine, wellness, and fitness.
+Examples: WebMD, Mayo Clinic, WHO.
+
+Home
+Home life and family.
+Examples: recipes, interior design, gardening, DIY.
+
+News
+News outlets and media.
+Examples: BBC, CNN, Reuters.
+
+Recreation
+Hobbies and leisure.
+Examples: travel, photography, collecting, outdoor activities.
+
+Reference
+Reference and information resources.
+Examples: Wikipedia, IMDb, Merriam-Webster, Internet Archive.
+
+Science
+Scientific disciplines and academic research.
+Examples: NASA, Nature, arXiv.
+
+Shopping
+E-commerce and online shopping.
+Examples: Amazon, eBay, Etsy.
+
+Society
+Social issues, politics, religion, civil rights.
+Examples: Amnesty International, political parties, religious organizations.
+
+Sports
+Sports and physical activities.
+Examples: ESPN, FIFA, team and sports league sites.
+
+Return a dictionary that tells us the categories associated with each url, with two keys: url and categories. The value associated with the categories key is a list, which can contain only one item.
+Respond using JSON only.

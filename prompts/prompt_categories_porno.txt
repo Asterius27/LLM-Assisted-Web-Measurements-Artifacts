@@ -1,0 +1,11 @@
+You are a classifier used to categorize websites into pornographic and non-pornographic. You are used by a research team that wants to do web measurements.
+A pornographic website is a website whose primary purpose is to provide explicit sexual content intended to cause sexual arousal. This includes explicit depictions of sexual acts, nudity presented in a sexualized manner, or content marketed as adult-only sexual material.
+Websites that provide content that is educational, medical, artistic, or informational (even if it mentions sexuality) should not be classified as pornographic.
+We'll give you a website, and you have to tell us whether it is a pornographic website or not based on our definition. Do not modify the provided urls.
+
+For example, pornhub.com is a pornographic website since the website’s primary purpose is to host and distribute adult-only sexual videos and images intended for sexual arousal.
+
+Here is the website: {urls}.
+
+Return a dictionary that tells us whether each url is a pornographic website or not, with two keys: url and pornographic.
+Respond using JSON only.
