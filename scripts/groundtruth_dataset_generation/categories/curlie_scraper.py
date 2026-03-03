@@ -156,8 +156,8 @@ def scrape_curlie(folder, maxx, tot, reprocess_domains=False):
     os.makedirs(folder, exist_ok=True)
     processed_domains = os.listdir(folder)
     tranco_list = load_csv_uris('../../tranco.csv', max=maxx)
-    uid_set = uid_filter('homepage2vec/test_uid.txt')
-    urls_uid_map = load_url_dict('homepage2vec/curlie_filtered.csv', uid_set, train=False)
+    uid_set = uid_filter('test_uid.txt')
+    urls_uid_map = load_url_dict('curlie_filtered.csv', uid_set, train=False)
     domains = set()
     for uid in urls_uid_map:
         domain = normalize_uri(urls_uid_map[uid])
