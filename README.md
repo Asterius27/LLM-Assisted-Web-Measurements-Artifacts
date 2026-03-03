@@ -43,7 +43,7 @@ To run the scripts, at least Python 3.10.0 is required. You can find all the nec
 The groundtruth datasets presented in Section 4 of our paper can be found inside the `/datasets/groundtruth/` folder. The datasets have been generated using the following scripts:
 
 - **Countries**:
-    1. Collect raw language and location data for each website in the initial datasets (one for each country) using the `/scripts/groundtruth_dataset_generation/countries/collect_raw_country_data.py` script. The first parameter of the `collect_raw_data` function determines the length of the subset of the country specific Tranco lists (starting from the top) which will be used as initial datasets. The second parameter, instead, determines the length of the subset of the country specific Tranco lists to consider when checking whether each website only appears in a specific country list or not.
+    1. Collect raw language and location data for each website in the initial datasets (one for each country) using the `/scripts/groundtruth_dataset_generation/countries/collect_raw_country_data.py` script. The first parameter of the `collect_raw_data` function determines the length of the subsets of the country specific Tranco lists (starting from the top) which will be used as initial datasets. The second parameter, instead, determines the length of the subsets of the country specific Tranco lists to consider when checking whether each website only appears in a specific country list or not.
     2. Parse the collected raw data and generate the final dataset using the `/scripts/groundtruth_dataset_generation/countries/build_groundtruth.py` script.
 
 - **Categories**:
@@ -57,17 +57,18 @@ For the governmental dataset we downloaded the datasets from https://govcookies.
 
 All of the prompts which were used can be found in the `\prompts\` folder.<br>
 The `llms_results` folder contains the results for all models in both the "only urls" and "live website access" configurations over all of the groundtruth datasets.<br>
-The models were queried using the `\scripts\query_llm.py` script. By changing the value of the `DISABLE_TOOLS` variable, one can switch between the two configurations: when `DISABLE_TOOLS` is set to `True` the LLM will only have access to the URL, when `DISABLE_TOOLS` is set to `False` the model has live access to the website through Playwright. The `\scripts\query_llm.py` script also save time logs, which we used to perform our scalability analysis (Section 6.3).
+The models were queried using the `\scripts\query_llm.py` script. By changing the value of the `DISABLE_TOOLS` variable, one can switch between the two configurations: when `DISABLE_TOOLS` is set to `True` the LLM will only have access to the URL, when `DISABLE_TOOLS` is set to `False` the model has live access to the website through Playwright. The `\scripts\query_llm.py` script also saves time logs, which we used to perform our scalability analysis (Section 6.3).
 
 ## Web Measurement
 
 ### Datasets
 
-- **Governmental**: we used the two datasets from the literature, https://govcookies.github.io/ and https://github.com/uw-ictd/GovHTTPS-Data, and we generated a dataset by filtering the Tranco top 50k and bottom 50k websites keeping only those websites that gpt-oss categorized as governmental, using the `\scripts\query_llm.py` script with the `\prompts\prompt_government.txt` prompt.<br>
+- **Governmental**: we used two datasets from the literature, https://govcookies.github.io/ and https://github.com/uw-ictd/GovHTTPS-Data, and we generated a dataset by filtering the Tranco top 50k and bottom 50k websites keeping only those websites that gpt-oss categorized as governmental, using the `\scripts\query_llm.py` script with the `\prompts\prompt_government.txt` prompt.<br>
 The baseline dataset, instead, was built by:
-    1. Executing the `/scripts/web_measurement_dataset_generation/governmental/build_raw_tld_filtered_dataset.py` script to filter Tranco in order to only keep the domains with a governmental TLD.
+    1. Executing the `/scripts/web_measurement_dataset_generation/governmental/build_raw_tld_filtered_dataset.py` script to filter the Tranco top and bottom 50k in order to only keep the domains with a governmental TLD.
     2. Executing the `/scripts/web_measurement_dataset_generation/governmental/dataset_reachability_filter.py` script to filter out unreachable URLs and generate the final baseline.
-The final dataset and baseline can be found at `/datasets/web_measurements/tranco_top_and_bot_50k_governmental_gpt_oss_filtered.csv` and `/datasets/web_measurements/tranco_top_and_bot_50k_governmental_tld_filtered.csv`, respectively.
+
+    The final dataset and baseline can be found at `/datasets/web_measurements/tranco_top_and_bot_50k_governmental_gpt_oss_filtered.csv` and `/datasets/web_measurements/tranco_top_and_bot_50k_governmental_tld_filtered.csv`, respectively.
 
 - **Pornographic**: we reconstructed the dataset from Vallina et al. (https://doi.org/10.1145/3355369.3355583), using the following scripts:
     1. `/scripts/web_measurement_dataset_generation/pornographic/build_raw_vallina_dataset.py`, which scrapes three aggregator websites to collect pornographic domains and identifies additional pornographic websites from the top and bottom 50k entries of the Tranco list using a keyword-based filtering approach, following Vallina et al.'s methodology as closely as possible.
